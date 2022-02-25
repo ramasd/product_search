@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ReadXmlController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
+
+Route::any('upload-xml', [ReadXmlController::class, 'index'])->name('xml-upload');
