@@ -15,11 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
 Route::any('upload-xml', [ReadXmlController::class, 'upload'])->name('xml-upload');
 
-Route::any('/products', [ProductsController::class, 'search'])->name('products.search');
+Route::any('/', [ProductsController::class, 'search'])->name('home');
 Route::get('/products/{product}', [ProductsController::class, 'show'])->name('products.show');

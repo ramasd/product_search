@@ -13,7 +13,9 @@
                 </td>
             </tr>
     @empty
-        No products found!
+        @if($_POST)
+            No products found!
+        @endif
     @endforelse
     </table>
 @endsection
