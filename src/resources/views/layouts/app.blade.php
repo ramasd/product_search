@@ -11,6 +11,15 @@
         </nav>
     </div>
     <div>
+        <p>Įrenginys:</p>
+        <form id="product_search" action="{{ route('products.search') }}" method="post">
+            @csrf
+            <input type="text" name="search" id="search" required>
+            <input value="Ieškoti" type="submit" class="submit-button">
+        </form>
+        <hr style="width:96%">
+
+
         @yield('content')
     </div>
 </body>

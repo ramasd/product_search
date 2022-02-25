@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class ReadXmlController extends Controller
 {
-    public function index(Request $request)
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+     */
+    public function upload(Request $request): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
         if($request->isMethod("POST")){
             $url = "https://www.bite.lt/bite-commerce/product-adform.xml";
