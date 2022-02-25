@@ -5,6 +5,9 @@
 @section('content')
 <div>
     <h4>Update Products Data</h4>
+    @if (session('error'))
+        <div style="color: darkred">{{ session('error') }}</div>
+    @endif
 
     @if ($message = Session::get('success'))
         <div>

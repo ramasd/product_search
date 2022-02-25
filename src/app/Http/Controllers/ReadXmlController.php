@@ -16,8 +16,13 @@ class ReadXmlController extends Controller
     {
         if($request->isMethod("POST")){
             $url = "https://www.bite.lt/bite-commerce/product-adform.xml";
-            $xmlDataString = file_get_contents($url);
-            $xmlObject = simplexml_load_string($xmlDataString);
+
+            try {
+                $xmlDataString = file_get_contents($url);
+                $xmlObject = simplexml_load_string($xmlDataString);
+            } catch (\Throwable $exception) {
+                return back()->withError($exception->getMessage());
+            }
 
             $json = json_encode($xmlObject);
             $phpDataArray = json_decode($json, true);
